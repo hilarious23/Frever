@@ -32,8 +32,7 @@ class FriendDetailScreen extends React.Component {
   }
 }
 
-const styles = StyleSheet
-.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
