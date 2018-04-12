@@ -12,7 +12,9 @@ class FriendListScreen extends React.Component {
       <View style={styles.container}>
         <Appbar />
         <FriendList />
-        <CircleButton>+</CircleButton>
+        <CircleButton>
+          { "user-plus" }
+        </CircleButton>
       </View>
     );
   }

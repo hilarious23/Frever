@@ -1,22 +1,14 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 
 class CircleButton extends React.Component {
   render() {
-    const { style, color }=this.props;
-
-    let bgColor = "#ea5e12";
-    let textColor ="#fff";
-
-    if (color === "white") {
-      bgColor = "#fff";
-      textColor ="#ea5e12";
-    }
-
     return (
-      <View style={[styles.CircleButton, style, {backgroundColor: bgColor }]}>
-        <Text style={[styles.CircleButtonTitle, {color: textColor}]}>
-          {this.props.children}
+      <View style={styles.CircleButton}>
+        <Text style={styles.CircleIcon}>
+          <Icon name = {this.props.children} />
         </Text>
       </View>
     );
@@ -25,6 +17,7 @@ class CircleButton extends React.Component {
 
 const styles = StyleSheet.create({
   CircleButton: {
+    backgroundColor: '#ff6600',
     position: 'absolute',
     bottom: 32,
     right: 32,
@@ -35,8 +28,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     elevation: 2,
   },
-  CircleButtonTitle: {
-    fontSize: 32,
+  CircleIcon: {
+    fontSize: 24,
+    color: '#fff',
     lineHeight: 36,
   },
 })

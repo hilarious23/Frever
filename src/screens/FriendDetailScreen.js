@@ -20,11 +20,13 @@ class FriendDetailScreen extends React.Component {
 
         <View style={styles.FriendContent}>
           <Text>
-            Moe Aoki
+            shun
           </Text>
         </View>
 
-        <CircleButton style={styles.editBotton}>+</CircleButton>
+        <CircleButton style={styles.editBotton}>
+          { "pencil" }
+        </CircleButton>
       </View>
     );
   }
@@ -37,7 +39,7 @@ const styles = StyleSheet
     width: '100%',
     top: 80,
   },
-  FriendHeader: {
+  FriendHeader:
     height: 140,
     backgroundColor: '#17313C',
     justifyContent: 'center',
