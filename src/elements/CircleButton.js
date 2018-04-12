@@ -8,7 +8,7 @@ class CircleButton extends React.Component {
     return (
       <View style={styles.CircleButton}>
         <Text style={styles.CircleIcon}>
-          <Icon name = {this.props.children} />
+          <Icon name = {this.props.children}/>
         </Text>
       </View>
     );

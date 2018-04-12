@@ -24,7 +24,7 @@ class FriendDetailScreen extends React.Component {
           </Text>
         </View>
 
-        <CircleButton style={styles.editBotton}>
+        <CircleButton style={styles.editButton}>
           { "pencil" }
         </CircleButton>
       </View>
@@ -63,7 +63,7 @@ const styles = StyleSheet
     backgroundColor: '#fff',
     flex: 1,
   },
-  editBotton: {
+  editButton: {
     top:120,
   },
 });
