@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 
 import FriendDetailScreen from './src/screens/FriendDetailScreen';
+import CircleButton from './src/elements/CircleButton';
 
 export default class App extends React.Component {
   render() {

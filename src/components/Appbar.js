@@ -15,7 +15,6 @@ class Appbar extends React.Component {
 
 const styles = StyleSheet.create({
   appbar: {
-    position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
