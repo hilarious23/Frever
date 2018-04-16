@@ -2,13 +2,16 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 
-import FriendDetailScreen from './src/screens/FriendDetailScreen';
+import FriendListScreen from './src/screens/FriendListScreen';
+import Appbar from './src/components/Appbar';
+import CircleButton from './src/elements/CircleButton';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <FriendDetailScreen />
+        <FriendListScreen />
+        
       </View>
     );
   }

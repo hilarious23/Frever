@@ -9,13 +9,9 @@ class FriendDetailScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Appbar />
-        <View>
-          <View style={styles.FriendHeader}>
-            <View>
-              <Text style={styles.FriendHeaderTitle}>hi</Text>
-              <Text style={styles.FriendHeaderDate}>2017/12/12</Text>
-            </View>
-          </View>
+        <View style={styles.FriendHeader}>
+            <Text style={styles.FriendHeaderTitle}>hi</Text>
+            <Text style={styles.FriendHeaderDate}>2017/12/12</Text>
         </View>
 
         <View style={styles.FriendContent}>
@@ -23,10 +19,11 @@ class FriendDetailScreen extends React.Component {
             shun
           </Text>
         </View>
-
-        <CircleButton style={styles.editButton}>
+        <View style={styles.editButton}>
+        <CircleButton >
           { "pencil" }
         </CircleButton>
+        </View>
       </View>
     );
   }
@@ -34,11 +31,12 @@ class FriendDetailScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     width: '100%',
-    top: 80,
+    flex: 1,
+    flexDirection: 'column',
+    
   },
-  FriendHeader:
+  FriendHeader: {
     height: 140,
     backgroundColor: '#17313C',
     justifyContent: 'center',
@@ -60,10 +58,11 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     paddingBottom: 20,
     backgroundColor: '#fff',
-    flex: 1,
+    zIndex: 0,
   },
   editButton: {
-    top:120,
+    top:480,
+    zIndex: 100
   },
 });
 

@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   friendList: {
     width: '100%',
     flex: 1,
-    paddingTop: 80,
+    
   },
   friendListItem: {
     padding: 10,
