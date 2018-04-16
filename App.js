@@ -2,14 +2,14 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 
-import FriendDetailScreen from './src/screens/FriendDetailScreen';
+import FriendEditScreen from './src/screens/FriendEditScreen';
 import CircleButton from './src/elements/CircleButton';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <FriendDetailScreen />
+        <FriendEditScreen />
       </View>
     );
   }
