@@ -2,18 +2,44 @@ import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
 
 
-
 class LoginScreen extends React.Component {
+  state = {
+    email: '',
+    password: '',
+  }
+
+  handleSubmit() {
+
+
+    // this.props.navigation.navigate('Home')
+    // Log in!!
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.loginContent}>
           <Text style={styles.title}>Frever</Text>
-          <TextInput style={styles.input} value="Email Address" />
-          <TextInput style={styles.input} value="Password" />
+          <TextInput
+            style={styles.input}
+            value={this.state.email}
+            onChangeText={(text) => { this.setState({ email: text }); }}
+            placeholder='Email Address'
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
+          <TextInput
+            style={styles.input}
+            value={this.state.password}
+            onChangeText={(text) => { this.setState({ password: text }); }}
+            placeholder='Password'
+            autoCapitalize="none"
+            autoCorrect={false}
+            secureTextEntry
+          />
           <TouchableHighlight
            style={styles.button}
-           onPress={() => {this.props.navigation.navigate('Home') }}
+           onPress={() => {this.handleSubmit.bind(this)}}
            underlayColor='#e25a00'
           >
            <Text style={styles.buttonText}> Login </Text>
@@ -28,6 +54,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
+    backgroundColor: '#fff',
   },
   title: {
     fontSize: 28,
