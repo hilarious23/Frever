@@ -1,19 +1,49 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
-
+import firebase from 'firebase';
 
 
 class SignupScreen extends React.Component {
+  state = {
+    email: '',
+    password: '',
+  }
+
+  handleSubmit() {
+    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .then((user) => {
+        this.props.navigation.navigate('Home');
+      });
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   render() {
     return (
       <View style={styles.container}>
           <View style={styles.loginContent}>
           <Text style={styles.title}>Join Frever!</Text>
-          <TextInput style={styles.input} value="Email Address" />
-          <TextInput style={styles.input} value="Password" />
+          <TextInput
+            style={styles.input}
+            onChangeText={(text) => { this.setState({ email:text }); }}
+            value = {this.state.email}
+            placeholder='Email Address'
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
+          <TextInput
+            style={styles.input}
+            onChangeText={(text) => { this.setState({ password:text }); }}
+            value = {this.state.password}
+            placeholder='Password'
+            autoCapitalize="none"
+            autoCorrect={false}
+            secureTextEntry
+          />
           <TouchableHighlight
            style={styles.button}
-           onPress={() => {}}
+           onPress={this.handleSubmit.bind(this)}
            underlayColor='#e25a00'
           >
            <Text style={styles.buttonText}> Signup! </Text>
@@ -28,6 +58,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
+    backgroundColor: '#fff',
   },
   title: {
     fontSize: 28,
