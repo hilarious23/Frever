@@ -10,11 +10,11 @@ import SignupScreen from './src/screens/SignupScreen';
 
 
 const App = StackNavigator({
+  Login: {screen: LoginScreen},
+  Signup: {screen: SignupScreen,},
   Home: { screen: FriendListScreen },
   FriendDetail: { screen: FriendDetailScreen },
   FriendEdit: {screen: FriendEditScreen},
-  Login: {screen: LoginScreen},
-  Signup: {screen: SignupScreen,},
 },{
   navigationOptions: {
     headerTitle: 'Frever',
