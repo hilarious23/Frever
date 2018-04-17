@@ -1,14 +1,12 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
 
-import Appbar from '../components/Appbar';
 
 
 class LoginScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Appbar />
         <View style={styles.loginContent}>
           <Text style={styles.title}>Frever</Text>
           <TextInput style={styles.input} value="Email Address" />

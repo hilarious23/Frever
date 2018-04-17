@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput } from 'react-native';
 
-import Appbar from '../components/Appbar';
 import CircleButton from '../elements/CircleButton';
 
 
@@ -9,7 +8,6 @@ class FriendEditScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Appbar />
         <TextInput style={styles.FriendEditInput} multiline blurOnSubmit={false} value="Hi"/>
         <CircleButton>
           { "check" }

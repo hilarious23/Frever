@@ -1,24 +1,31 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 
 class FriendList extends React.Component {
   render() {
     return (
       <View style={styles.friendList}>
-        <View style={styles.friendListItem}>
-          <Text style={styles.friendName}>石川駿</Text>
-          <Text style={styles.friendDate}>2017/10/10</Text>
-        </View>
+        <TouchableHighlight onPress={() => {this.props.navigation.navigate('FriendDetail'); }}>
+          <View style={styles.friendListItem}>
+            <Text style={styles.friendName}>石川駿</Text>
+            <Text style={styles.friendDate}>2017/10/10</Text>
+          </View>
+        </TouchableHighlight>
 
-        <View style={styles.friendListItem}>
-          <Text style={styles.friendName}>石川駿</Text>
-          <Text style={styles.friendDate}>2017/10/10</Text>
-        </View>
+        <TouchableHighlight onPress={() => {this.props.navigation.navigate('FriendDetail'); }}>
+          <View style={styles.friendListItem}>
+            <Text style={styles.friendName}>石川駿</Text>
+            <Text style={styles.friendDate}>2017/10/10</Text>
+          </View>
+        </TouchableHighlight>
 
-        <View style={styles.friendListItem}>
-          <Text style={styles.friendName}>石川駿</Text>
-          <Text style={styles.friendDate}>2017/10/10</Text>
-        </View>
+        <TouchableHighlight onPress={() => {this.props.navigation.navigate('FriendDetail'); }}>
+          <View style={styles.friendListItem}>
+            <Text style={styles.friendName}>石川駿</Text>
+            <Text style={styles.friendDate}>2017/10/10</Text>
+          </View>
+        </TouchableHighlight>
+
       </View>
     );
   }

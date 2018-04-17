@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import Appbar from '../components/Appbar';
 import FriendList from '../components/FriendList';
 import CircleButton from '../elements/CircleButton';
 
@@ -10,9 +9,8 @@ class FriendListScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Appbar />
-        <FriendList />
-        <CircleButton>
+        <FriendList navigation={this.props.navigation} />
+        <CircleButton onPress={ ()=> {this.props.navigation.navigate('FriendEdit') }}>
           { "user-plus" }
         </CircleButton>
       </View>
@@ -25,6 +23,7 @@ const styles = StyleSheet.create({
       flex: 1,
       width: '100%',
       flexDirection: 'column',
+      backgroundColor: '#FFFDF6',
   },
 });
 

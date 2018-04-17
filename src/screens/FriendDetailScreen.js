@@ -1,14 +1,12 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-import Appbar from '../components/Appbar';
 import CircleButton from '../elements/CircleButton';
 
 class FriendDetailScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Appbar />
         <View style={styles.FriendHeader}>
           <Text style={styles.FriendHeaderTitle}>hi</Text>
           <Text style={styles.FriendHeaderDate}>2017/12/12</Text>
@@ -21,7 +19,7 @@ class FriendDetailScreen extends React.Component {
         </View>
 
         <View style={styles.editButton}>
-          <CircleButton>
+          <CircleButton onPress={() => { this.props.navigation.navigate('FriendEdit') }}>
             { "pencil" }
           </CircleButton>
         </View>
