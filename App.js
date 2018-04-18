@@ -1,27 +1,43 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { StackNavigator } from 'react-navigation';
+import firebase from 'firebase';
 
 import FriendListScreen from './src/screens/FriendListScreen';
-import Appbar from './src/components/Appbar';
-import CircleButton from './src/elements/CircleButton';
+import FriendDetailScreen from './src/screens/FriendDetailScreen';
+import FriendEditScreen from './src/screens/FriendEditScreen';
+import LoginScreen from './src/screens/LoginScreen';
+import SignupScreen from './src/screens/SignupScreen';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <FriendListScreen />
-        
-      </View>
-    );
-  }
-}
+import ENV from './env.json';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFDF6',
-    alignItems: 'center',
-    justifyContent: 'center',
+const config = {
+  apiKey: ENV.FIREBASE_API_KEY,
+  authDomain: ENV.FIREBASE_AUTH_DOMAIN,
+  databaseURL: ENV.FIREBASE_DB_URL,
+  projectId: ENV.FIREBASE_PRO_ID,
+  storageBucket: ENV.FIREBASE_STORAGE,
+  messagingSenderId: ENV.FIREBASE_SENDER_ID,
+};
+firebase.initializeApp(config);
+
+const App = StackNavigator({
+  Login: {screen: LoginScreen},
+  Signup: {screen: SignupScreen,},
+  Home: { screen: FriendListScreen },
+  FriendDetail: { screen: FriendDetailScreen },
+  FriendEdit: {screen: FriendEditScreen},
+},{
+  navigationOptions: {
+    headerTitle: 'Frever',
+    headerTitleStyle: {
+      textAlign: 'center',
+      alignSelf: 'center',
+    },
+    headerTintColor: '#fff',
+    headerStyle: {
+      backgroundColor:'#4eacd8',
+      elevation: 3,
+    },
   },
 });
+
+export default App;
