@@ -7,6 +7,7 @@ import FriendEditScreen from './src/screens/FriendEditScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import SignupScreen from './src/screens/SignupScreen';
 
+require("firebase/firestore");
 import ENV from './env.json';
 
 const config = {

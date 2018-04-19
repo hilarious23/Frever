@@ -43,7 +43,7 @@ class LoginScreen extends React.Component {
           />
           <TouchableHighlight
            style={styles.button}
-           onPress={() => {this.handleSubmit.bind(this)}}
+           onPress={this.handleSubmit.bind(this)}
            underlayColor='#e25a00'
           >
            <Text style={styles.buttonText}> Login </Text>
