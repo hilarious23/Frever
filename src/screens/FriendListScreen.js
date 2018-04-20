@@ -19,8 +19,8 @@ class FriendListScreen extends React.Component {
       .then((snapshot) => {
         const friendList = [];
         snapshot.forEach((doc) => {
-          friendList.push(doc.data());
-        })
+          friendList.push({ ...doc.data(), key: doc.id });
+        });
         this.setState({ friendList: friendList });
       })
       .catch((error) => {
