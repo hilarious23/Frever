@@ -4,6 +4,7 @@ import firebase from 'firebase';
 import FriendListScreen from './src/screens/FriendListScreen';
 import FriendDetailScreen from './src/screens/FriendDetailScreen';
 import FriendEditScreen from './src/screens/FriendEditScreen';
+import NewFriendScreen from './src/screens/NewFriendScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import SignupScreen from './src/screens/SignupScreen';
 
@@ -24,6 +25,7 @@ const App = StackNavigator({
   Login: {screen: LoginScreen},
   Signup: {screen: SignupScreen,},
   Home: { screen: FriendListScreen },
+  NewFriend: {screen: NewFriendScreen},
   FriendDetail: { screen: FriendDetailScreen },
   FriendEdit: {screen: FriendEditScreen},
 },{

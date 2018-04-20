@@ -1,25 +1,14 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import firebase from 'firebase';
 
 import FriendList from '../components/FriendList';
 import CircleButton from '../elements/CircleButton';
 
 
-//{this.props.navigation.navigate('FriendEdit') }
 class FriendListScreen extends React.Component {
   handlePress() {
-    const db = firebase.firestore();
-    db.collection('friends').add({
-      body: "test friend",
-      createdOn: '2017-12-12',
-    })
-      .then((docRef) => {
-        console.log(docRef.id);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const { params } =this.props.navigation.state;
+    this.props.navigation.navigate('NewFriend', { currentUser: params.currentUser});
   }
 
   render() {
