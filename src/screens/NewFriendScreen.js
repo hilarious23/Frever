@@ -11,10 +11,10 @@ class NewFriendScreen extends React.Component {
   }
 
 handlePress() {
-  const { params } = this.props.navigation.state;
   const db = firebase.firestore();
-  db.collection(`users/${params.currentUser.uid}/friends`).add({
-    body: "this.state.body",
+  const { currentUser } = firebase.auth();
+  db.collection(`users/${currentUser.uid}/friends`).add({
+    body: this.state.body,
     createdOn: new Date(),
   })
     .then((docRef) => {

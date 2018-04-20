@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 
 class FriendList extends React.Component {
   render() {
+    console.log(this.props.friendList);
     return (
       <View style={styles.friendList}>
         <TouchableHighlight onPress={() => {this.props.navigation.navigate('FriendDetail'); }}>
