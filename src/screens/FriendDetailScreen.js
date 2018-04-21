@@ -3,18 +3,34 @@ import { StyleSheet, View, Text } from 'react-native';
 
 import CircleButton from '../elements/CircleButton';
 
+const dateString = (date) => {
+  const str = date.toISOString();
+  return str.split('T')[0];
+}
+
+
 class FriendDetailScreen extends React.Component {
+  state = {
+    friend: {},
+  }
+
+  componentWillMount() {
+    const {params} = this.props.navigation.state;
+    this.setState({ friend: params.friend });
+  }
+
   render() {
+    const { friend } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.FriendHeader}>
-          <Text style={styles.FriendHeaderTitle}>hi</Text>
-          <Text style={styles.FriendHeaderDate}>2017/12/12</Text>
+          <Text style={styles.FriendHeaderTitle}>{friend.body.substring(0, 10)}</Text>
+          <Text style={styles.FriendHeaderDate}>{dateString(friend.createdOn)}</Text>
         </View>
 
         <View style={styles.FriendContent}>
-          <Text>
-            shun
+          <Text style={styles.FriendBody}>
+            {friend.body}
           </Text>
         </View>
 
@@ -50,6 +66,10 @@ const styles = StyleSheet.create({
   FriendHeaderDate: {
     fontSize: 12,
     color: '#fff',
+  },
+  FriendBody: {
+    lineHeight: 24,
+    fontSize: 15,
   },
   editButton: {
 
