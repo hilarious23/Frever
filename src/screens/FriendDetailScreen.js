@@ -35,7 +35,8 @@ class FriendDetailScreen extends React.Component {
         </View>
 
         <View style={styles.editButton}>
-          <CircleButton onPress={() => { this.props.navigation.navigate('FriendEdit') }}>
+          <CircleButton
+            onPress={() => { this.props.navigation.navigate('FriendEdit', { friend: friend}); }}>
             { "pencil" }
           </CircleButton>
         </View>
