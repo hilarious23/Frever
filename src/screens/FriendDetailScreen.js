@@ -19,6 +19,10 @@ class FriendDetailScreen extends React.Component {
     this.setState({ friend: params.friend });
   }
 
+  returnFriend(friend) {
+    this.setState({ friend });
+  }
+
   render() {
     const { friend } = this.state;
     return (
@@ -36,7 +40,7 @@ class FriendDetailScreen extends React.Component {
 
         <View style={styles.editButton}>
           <CircleButton
-            onPress={() => { this.props.navigation.navigate('FriendEdit', { friend: friend}); }}>
+            onPress={() => { this.props.navigation.navigate('FriendEdit', { ...friend, returnFriend: this.returnFriend.bind(this) }); }}>
             { "pencil" }
           </CircleButton>
         </View>

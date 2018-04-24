@@ -15,6 +15,14 @@ class FriendListScreen extends React.Component {
     const { currentUser } = firebase.auth();
     const db = firebase.firestore();
     db.collection(`users/${currentUser.uid}/friends`)
+      .onSnapshot((snapshot) => {
+        const friendList = [];
+        snapshot.forEach((doc) => {
+          friendList.push({ ...doc.data(), key: doc.id });
+        });
+        this.setState({ friendList: friendList });
+      });
+      /*
       .get()
       .then((snapshot) => {
         const friendList = [];
@@ -26,6 +34,7 @@ class FriendListScreen extends React.Component {
       .catch((error) => {
         console.log(error);
       })
+      */
   }
 
   handlePress() {
