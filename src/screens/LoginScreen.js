@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableHighlight, TouchableOpacity } from 'react-native';
 import firebase from 'firebase';
+import { NavigationActions } from 'react-navigation';
 
 class LoginScreen extends React.Component {
   state = {
@@ -12,11 +13,22 @@ class LoginScreen extends React.Component {
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
       .then((user) => {
         console.log('success', user);
-        this.props.navigation.navigate('Home');
+
+        const resetAction = NavigationActions.reset({
+          index: 0,
+          actions: [
+            NavigationActions.navigate({ routeName: 'Home' }),
+          ],
+        });
+        this.props.navigation.dispatch(resetAction);
       })
       .catch((error) => {
         console.log('error', error);
       });
+  }
+
+  handlePress() {
+    this.props.navigation.navigate('Signup');
   }
 
   render() {
@@ -31,6 +43,7 @@ class LoginScreen extends React.Component {
             placeholder='Email Address'
             autoCapitalize="none"
             autoCorrect={false}
+            underlineColorAndroid='transparent'
           />
           <TextInput
             style={styles.input}
@@ -40,6 +53,7 @@ class LoginScreen extends React.Component {
             autoCapitalize="none"
             autoCorrect={false}
             secureTextEntry
+            underlineColorAndroid='transparent'
           />
           <TouchableHighlight
            style={styles.button}
@@ -49,6 +63,11 @@ class LoginScreen extends React.Component {
            <Text style={styles.buttonText}> Login </Text>
           </TouchableHighlight>
         </View>
+        <TouchableOpacity
+          style={styles.createAccount}
+          onPress={this.handlePress.bind(this)}>
+          <Text style={styles.createAccountText}>Create Account</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -89,6 +108,12 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontSize:18,
+  },
+  createAccount: {
+    alignSelf: 'center',
+  },
+  createAccountText: {
+    fontSize: 16,
   },
 });
 

@@ -50,7 +50,7 @@ class FriendEditScreen extends React.Component {
           multiline
           blurOnSubmit={false}
           value={this.state.body}
-          onChangeText={(text) => { this.setState({body: text }); }}
+          onChangeText={(text) => { this.setState({ body: text }); }}
         />
         <CircleButton onPress= {this.handlePress.bind(this)}>
           { "check" }

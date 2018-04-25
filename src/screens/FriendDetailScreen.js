@@ -15,12 +15,12 @@ class FriendDetailScreen extends React.Component {
   }
 
   componentWillMount() {
-    const {params} = this.props.navigation.state;
+    const { params } = this.props.navigation.state;
     this.setState({ friend: params.friend });
   }
 
   returnFriend(friend) {
-    this.setState({ friend });
+    this.setState({ friend: friend });
   }
 
   render() {
@@ -40,7 +40,8 @@ class FriendDetailScreen extends React.Component {
 
         <View style={styles.editButton}>
           <CircleButton
-            onPress={() => { this.props.navigation.navigate('FriendEdit', { ...friend, returnFriend: this.returnFriend.bind(this) }); }}>
+            onPress={() => { this.props.navigation.navigate('FriendEdit',  { ...friend, returnFriend: this.returnFriend.bind(this) }); }}
+          >
             { "pencil" }
           </CircleButton>
         </View>
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   editButton: {
-
+    top: 0,
   },
   FriendContent: {
     paddingTop: 30,

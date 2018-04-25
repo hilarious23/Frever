@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import { SearchBar } from 'react-native-elements';
 
 class Appbar extends React.Component {
   render() {
@@ -8,6 +9,13 @@ class Appbar extends React.Component {
        <View>
          <Text style={styles.appbarTitle}>Frever</Text>
        </View>
+
+       <SearchBar
+          showLoading
+          platform="android"
+          placeholder='Search'
+        />
+        
      </View>
    );
   }

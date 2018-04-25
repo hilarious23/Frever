@@ -23,12 +23,13 @@ const styles = StyleSheet.create({
   },
   CircleButton: {
     backgroundColor: '#ff6600',
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+    width: 64,
+    height: 64,
+    margin: 8,
+    borderRadius: 36,
     justifyContent: 'center',
     alignItems: 'center',
-    elevation: 2,
+    elevation: 4,
   },
   CircleIcon: {
     fontSize: 24,
