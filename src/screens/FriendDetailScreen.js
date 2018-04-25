@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import firebase from 'firebase';
 
 import CircleButton from '../elements/CircleButton';
 
@@ -12,6 +13,7 @@ const dateString = (date) => {
 class FriendDetailScreen extends React.Component {
   state = {
     friend: {},
+    key: '',
   }
 
   componentWillMount() {
@@ -22,6 +24,20 @@ class FriendDetailScreen extends React.Component {
   returnFriend(friend) {
     this.setState({ friend: friend });
   }
+
+  handlePress() {
+    const { currentUser } = firebase.auth();
+    const db = firebase.firestore();
+    db.collection(`users/${currentUser.uid}/friends`).doc(`${this.state.key}`).delete()
+      .then(() => {
+        console.log('Deleted');
+        navigation.goBack();
+      })
+      .catch((error) => {
+        console.log('error');
+      });
+  }
+
 
   render() {
     const { friend } = this.state;
@@ -40,11 +56,15 @@ class FriendDetailScreen extends React.Component {
 
         <View style={styles.editButton}>
           <CircleButton
-            onPress={() => { this.props.navigation.navigate('FriendEdit',  { ...friend, returnFriend: this.returnFriend.bind(this) }); }}
+            onPress={() => { this.props.navigation.navigate('FriendEdit',  { friend }); }}
           >
             { "pencil" }
           </CircleButton>
         </View>
+
+        <CircleButton onPress= {this.handlePress.bind(this)}>
+          { "check" }
+        </CircleButton>
 
       </View>
     );

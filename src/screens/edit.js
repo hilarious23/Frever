@@ -6,26 +6,35 @@ import CircleButton from '../elements/CircleButton';
 
 class FriendEditScreen extends React.Component {
   state = {
-    body: {},
-    key: {},
+    body: '',
+    key: '',
   }
+
+
   componentWillMount() {
     const { params } = this.props.navigation.state;
     this.setState({
       body: params.friend.body,
-      key: params.friend.key
+      key: params.friend.key,
     });
   }
 
   handlePress() {
     const { currentUser } = firebase.auth();
     const db = firebase.firestore();
+    const newDate = new Date();
     db.collection(`users/${currentUser.uid}/friends`).doc(this.state.key)
       .update({
         body: this.state.body,
+        createdOn: newDate,
       })
       .then(() => {
         const { navigation } = this.props;
+        navigation.state.params.returnFriend({
+          body: this.state.body,
+          key: this.state.key,
+          createdOn: newDate,
+        });
         navigation.goBack();
       })
       .catch((error) => {
@@ -41,7 +50,7 @@ class FriendEditScreen extends React.Component {
           multiline
           blurOnSubmit={false}
           value={this.state.body}
-          onChangeText={(text) => { this.setState({body: text }); }}
+          onChangeText={(text) => { this.setState({ body: text }); }}
         />
         <CircleButton onPress= {this.handlePress.bind(this)}>
           { "check" }
