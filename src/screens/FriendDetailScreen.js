@@ -18,8 +18,12 @@ class FriendDetailScreen extends React.Component {
 
   componentWillMount() {
     const { params } = this.props.navigation.state;
-    this.setState({ friend: params.friend });
+    this.setState({
+      friend: params.friend,
+      key: params.friend.key,
+     });
   }
+
 
   returnFriend(friend) {
     this.setState({ friend: friend });
@@ -28,16 +32,15 @@ class FriendDetailScreen extends React.Component {
   handlePress() {
     const { currentUser } = firebase.auth();
     const db = firebase.firestore();
-    db.collection(`users/${currentUser.uid}/friends`).doc(`${this.state.key}`).delete()
+    db.collection(`users/${currentUser.uid}/friends`).doc(this.state.key).delete()
       .then(() => {
         console.log('Deleted');
-        navigation.goBack();
+        this.props.navigation.goBack();
       })
       .catch((error) => {
-        console.log('error');
+        console.log(error);
       });
   }
-
 
   render() {
     const { friend } = this.state;
@@ -56,7 +59,7 @@ class FriendDetailScreen extends React.Component {
 
         <View style={styles.editButton}>
           <CircleButton
-            onPress={() => { this.props.navigation.navigate('FriendEdit',  { friend }); }}
+            onPress={() => { this.props.navigation.navigate('FriendEdit',  { ...friend, returnFriend: this.returnFriend.bind(this) }); }}
           >
             { "pencil" }
           </CircleButton>
