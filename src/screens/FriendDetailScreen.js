@@ -59,15 +59,16 @@ class FriendDetailScreen extends React.Component {
 
         <View style={styles.editButton}>
           <CircleButton
-            onPress={() => { this.props.navigation.navigate('FriendEdit',  { ...friend, returnFriend: this.returnFriend.bind(this) }); }}
+            onPress={() => { this.props.navigation.navigate('FriendEdit',  { friend, returnFriend: this.returnFriend.bind(this) }); }}
           >
             { "pencil" }
           </CircleButton>
         </View>
-
-        <CircleButton onPress= {this.handlePress.bind(this)}>
-          { "check" }
-        </CircleButton>
+        <View style={styles.funcButton}>
+          <CircleButton onPress= {this.handlePress.bind(this)}>
+            { "trash-o" }
+          </CircleButton>
+        </View>
 
       </View>
     );
@@ -110,6 +111,9 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     backgroundColor: '#fff',
     zIndex: 0,
+  },
+  funcButton: {
+    top: -120,
   },
 });
 
