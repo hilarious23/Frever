@@ -11,7 +11,7 @@ class FriendList extends React.Component {
     return(
       <TouchableHighlight onPress={() => {this.props.navigation.navigate('FriendDetail', {friend: item}); }}>
         <View style={styles.friendListItem}>
-          <Text style={styles.friendName}>{item.body.substring(0, 10)}</Text>
+          <Text style={styles.friendName}>{item.name}</Text>
           <Text style={styles.friendDate}>{dateString(item.createdOn)}</Text>
         </View>
       </TouchableHighlight>

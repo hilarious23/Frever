@@ -47,7 +47,7 @@ class FriendDetailScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.FriendHeader}>
-          <Text style={styles.FriendHeaderTitle}>{friend.body.substring(0, 10)}</Text>
+          <Text style={styles.FriendHeaderTitle}>{friend.name}</Text>
           <Text style={styles.FriendHeaderDate}>{dateString(friend.createdOn)}</Text>
         </View>
 
