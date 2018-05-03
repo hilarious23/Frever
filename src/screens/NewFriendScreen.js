@@ -16,7 +16,7 @@ handlePress() {
   const { currentUser } = firebase.auth();
   db.collection(`users/${currentUser.uid}/friends`).add({
     name: this.state.name,
-    email: this.state.email,
+    url: this.state.url,
     body: this.state.body,
     createdOn: new Date(),
   })
@@ -36,22 +36,27 @@ handlePress() {
           multiline
           blurOnSubmit={false}
           placeholder='Name'
+          autoCapitalize="none"
+          autoCorrect={false}
           value={this.state.name}
           onChangeText={(text) => { this.setState({ name: text }); }}
         />
         <TextInput
-          style={styles.FriendEditEmail}
+          style={styles.FriendEditUrl}
           multiline
           blurOnSubmit={false}
-          placeholder='Email address'
-          value={this.state.email}
-          onChangeText={(text) => { this.setState({ email: text }); }}
+          placeholder='Facebook URL'
+          autoCapitalize="none"
+          autoCorrect={false}
+          value={this.state.url}
+          onChangeText={(text) => { this.setState({ url: text }); }}
         />
         <TextInput
           style={styles.FriendEditBody}
           multiline
           blurOnSubmit={false}
           placeholder='Personal Infomation'
+          autoCapitalize="none"
           value={this.state.body}
           onChangeText={(text) => { this.setState({ body: text }); }}
         />
@@ -80,7 +85,7 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     fontSize: 24,
   },
-  FriendEditEmail: {
+  FriendEditUrl: {
     backgroundColor: '#9fa1a3',
     textAlignVertical: 'top',
     flex: 2,
