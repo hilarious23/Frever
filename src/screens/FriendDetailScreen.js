@@ -48,6 +48,7 @@ class FriendDetailScreen extends React.Component {
       <View style={styles.container}>
         <View style={styles.FriendHeader}>
           <Text style={styles.FriendHeaderTitle}>{friend.name}</Text>
+          <Text style={styles.FriendHeaderUrl}>{friend.url}</Text>
           <Text style={styles.FriendHeaderDate}>{dateString(friend.createdOn)}</Text>
         </View>
 
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   FriendHeader: {
-    height: 140,
+    height: 130,
     backgroundColor: '#17313C',
     justifyContent: 'center',
     padding: 10,
@@ -92,6 +93,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
     marginBottom: 4,
+  },
+  FriendHeaderUrl: {
+    fontSize: 16,
+    color: '#fff',
+    marginBottom: 8,
   },
   FriendHeaderDate: {
     fontSize: 12,

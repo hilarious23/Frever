@@ -7,6 +7,8 @@ import CircleButton from '../elements/CircleButton';
 class FriendEditScreen extends React.Component {
   state = {
     body: '',
+    name: '',
+    url: '',
     key: '',
   }
 
@@ -14,6 +16,8 @@ class FriendEditScreen extends React.Component {
     const { params } = this.props.navigation.state;
     this.setState({
       body: params.friend.body,
+      name: params.friend.name,
+      url: params.friend.url,
       key: params.friend.key,
     });
   }
@@ -25,12 +29,16 @@ class FriendEditScreen extends React.Component {
     db.collection(`users/${currentUser.uid}/friends`).doc(this.state.key)
       .update({
         body: this.state.body,
+        name: this.state.name,
+        url: this.state.url,
         createdOn: newDate,
       })
       .then(() => {
         const { navigation } = this.props;
         navigation.state.params.returnFriend({
           body: this.state.body,
+          name: this.state.name,
+          url: this.state.url,
           key: this.state.key,
           createdOn: newDate,
         });
@@ -45,9 +53,31 @@ class FriendEditScreen extends React.Component {
     return (
       <View style={styles.container}>
         <TextInput
-          style={styles.FriendEditInput}
+          style={styles.FriendEditName}
           multiline
           blurOnSubmit={false}
+          placeholder='Name'
+          autoCapitalize="none"
+          autoCorrect={false}
+          value={this.state.name}
+          onChangeText={(text) => { this.setState({ name: text }); }}
+        />
+        <TextInput
+          style={styles.FriendEditUrl}
+          multiline
+          blurOnSubmit={false}
+          placeholder='Facebook URL'
+          autoCapitalize="none"
+          autoCorrect={false}
+          value={this.state.url}
+          onChangeText={(text) => { this.setState({ url: text }); }}
+        />
+        <TextInput
+          style={styles.FriendEditBody}
+          multiline
+          blurOnSubmit={false}
+          placeholder='Personal Infomation'
+          autoCapitalize="none"
           value={this.state.body}
           onChangeText={(text) => { this.setState({ body: text }); }}
         />
@@ -66,11 +96,31 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'column',
   },
-  FriendEditInput: {
+  FriendEditName: {
+    backgroundColor: '#ddd',
+    textAlignVertical: 'top',
+    flex: 0.4,
+    paddingTop: 28,
+    paddingLeft: 16,
+    paddingRight: 16,
+    paddingBottom: 16,
+    fontSize: 24,
+  },
+  FriendEditUrl: {
+    backgroundColor: '#9fa1a3',
+    textAlignVertical: 'top',
+    flex: 0.2,
+    paddingTop: 16,
+    paddingLeft: 16,
+    paddingRight: 16,
+    paddingBottom: 16,
+    fontSize: 16,
+  },
+  FriendEditBody: {
     backgroundColor: '#fff',
     textAlignVertical: 'top',
-    flex: 1,
-    paddingTop: 32,
+    flex: 6,
+    paddingTop: 28,
     paddingLeft: 16,
     paddingRight: 16,
     paddingBottom: 16,

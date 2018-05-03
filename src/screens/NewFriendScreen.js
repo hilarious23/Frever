@@ -78,8 +78,8 @@ const styles = StyleSheet.create({
   FriendEditName: {
     backgroundColor: '#ddd',
     textAlignVertical: 'top',
-    flex: 1,
-    paddingTop: 32,
+    flex: 0.4,
+    paddingTop: 28,
     paddingLeft: 16,
     paddingRight: 16,
     paddingBottom: 16,
@@ -88,8 +88,8 @@ const styles = StyleSheet.create({
   FriendEditUrl: {
     backgroundColor: '#9fa1a3',
     textAlignVertical: 'top',
-    flex: 2,
-    paddingTop: 32,
+    flex: 0.2,
+    paddingTop: 16,
     paddingLeft: 16,
     paddingRight: 16,
     paddingBottom: 16,
@@ -98,8 +98,8 @@ const styles = StyleSheet.create({
   FriendEditBody: {
     backgroundColor: '#fff',
     textAlignVertical: 'top',
-    flex: 3,
-    paddingTop: 32,
+    flex: 6,
+    paddingTop: 28,
     paddingLeft: 16,
     paddingRight: 16,
     paddingBottom: 16,
