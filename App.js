@@ -20,6 +20,9 @@ const config = {
   messagingSenderId: ENV.FIREBASE_SENDER_ID,
 };
 firebase.initializeApp(config);
+const firestore = firebase.firestore();
+const settings = {timestampsInSnapshots: true};
+firestore.settings(settings);
 
 const App = StackNavigator({
   Login: {screen: LoginScreen},
