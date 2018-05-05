@@ -5,8 +5,8 @@ import { NavigationActions } from 'react-navigation';
 
 class LoginScreen extends React.Component {
   state = {
-    email: '',
-    password: '',
+    email: 'user1@gmail.com',
+    password: 'password',
   }
 
   handleSubmit() {
@@ -26,7 +26,7 @@ class LoginScreen extends React.Component {
         console.log('error', error);
       });
   }
-
+/*
   componentDidMount() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user != null) {
@@ -34,18 +34,7 @@ class LoginScreen extends React.Component {
       }
     })
   }
-
-  async loginWithFacebook() {
-    const { type , token } = await Expo.Facebook.logInWithReadPermissionsAsync
-    ( '408621386214372' , { permissions: ['public_profile', 'email' ]});
-    if (type == 'success') {
-      const credential = firebase.auth.FacebookAuthProvider.credential(token);
-      firebase.auth().signInWithCredential(credential).catch((error) => {
-        console.log(error)
-      });
-    }
-  }
-
+*/
   handlePress() {
     this.props.navigation.navigate('Signup');
   }
@@ -87,11 +76,7 @@ class LoginScreen extends React.Component {
           onPress={this.handlePress.bind(this)}>
           <Text style={styles.createAccountText}>Create Account</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.createAccount}
-          onPress={() => this.loginWithFacebook()}>
-          <Text style={styles.createAccountText}>Login With Facebook</Text>
-        </TouchableOpacity>
+
       </View>
     );
   }

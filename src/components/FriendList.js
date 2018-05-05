@@ -1,10 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableHighlight, FlatList } from 'react-native';
 
-const dateString = (date) => {
-  const str = date.toISOString();
-  return str.split('T')[0];
-}
 
 class FriendList extends React.Component {
   renderFriend({ item }) {
@@ -12,7 +8,6 @@ class FriendList extends React.Component {
       <TouchableHighlight onPress={() => {this.props.navigation.navigate('FriendDetail', {friend: item}); }}>
         <View style={styles.friendListItem}>
           <Text style={styles.friendName}>{item.name}</Text>
-          <Text style={styles.friendDate}>{dateString(item.createdOn)}</Text>
         </View>
       </TouchableHighlight>
     );
