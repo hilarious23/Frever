@@ -62,8 +62,8 @@ const styles = StyleSheet.create({
       backgroundColor: '#FFFDF6',
   },
   favStar: {
-    top: -640,
-    left: 28,
+    top: -636,
+    left: 36,
   },
 });
 

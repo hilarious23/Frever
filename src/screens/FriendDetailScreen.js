@@ -50,6 +50,14 @@ class FriendDetailScreen extends React.Component {
     const newDate = new Date();
     db.collection(`users/${currentUser.uid}/friends`).doc(this.state.key)
       .update({
+        /*
+        Fav() {
+          if (fav === 1) {
+          return fav: 0;
+        } else {
+          return fav: 1;
+        }
+        */
         fav: 1
       })
       .catch((error) => {

@@ -8,6 +8,7 @@ import CircleButton from '../elements/CircleButton';
 class NewFriendScreen extends React.Component {
   state = {
     name: '',
+    url: '',
     body: '',
   }
 
