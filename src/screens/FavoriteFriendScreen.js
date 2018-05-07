@@ -17,6 +17,7 @@ class FavoriteFriendScreen extends React.Component {
     db.collection(`users/${currentUser.uid}/friends`)
       .orderBy('fav')
       .where('fav','>',0)
+      .orderBy('createdOn', 'desc')
       .onSnapshot((snapshot) => {
         const friendList = [];
         snapshot.forEach((doc) => {
