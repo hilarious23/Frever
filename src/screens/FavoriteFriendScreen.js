@@ -4,6 +4,7 @@ import firebase from 'firebase';
 
 import FriendList from '../components/FriendList';
 import CircleButton from '../elements/CircleButton';
+import { NavigationActions } from 'react-navigation';
 
 
 class FavoriteFriendScreen extends React.Component {
@@ -32,7 +33,13 @@ class FavoriteFriendScreen extends React.Component {
   }
 
   handleClick() {
-    this.props.navigation.navigate('Home');
+    const resetAction = NavigationActions.reset({
+      index: 0,
+      actions: [
+        NavigationActions.navigate({ routeName: 'Home' }),
+      ],
+    });
+    this.props.navigation.dispatch(resetAction);
   }
 
 

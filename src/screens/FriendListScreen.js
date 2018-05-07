@@ -50,7 +50,9 @@ class FriendListScreen extends React.Component {
     return (
       <View style={styles.container}>
         <FriendList friendList={this.state.friendList} navigation={this.props.navigation} />
-        <CircleButton onPress={this.handlePress.bind(this)}>
+
+        <CircleButton
+          onPress={this.handlePress.bind(this)}>
           { "user-plus" }
         </CircleButton>
 
