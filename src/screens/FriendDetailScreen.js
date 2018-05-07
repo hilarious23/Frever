@@ -73,23 +73,20 @@ class FriendDetailScreen extends React.Component {
           </Text>
         </View>
 
-        <View style={styles.editButton}>
-          <CircleButton
-            onPress={() => { this.props.navigation.navigate('FriendEdit',  { friend, returnFriend: this.returnFriend.bind(this) }); }}
-          >
-            { "pencil" }
-          </CircleButton>
-        </View>
-        <View style={styles.funcButton}>
-          <CircleButton onPress= {this.handlePress.bind(this)}>
-            { "trash-o" }
-          </CircleButton>
-        </View>
-        <View style={styles.favStar}>
-          <CircleButton onPress= {this.handleClick.bind(this)}>
-            { "star" }
-          </CircleButton>
-        </View>
+        <CircleButton
+          style={styles.editButton}
+          onPress={() => { this.props.navigation.navigate('FriendEdit',  { friend, returnFriend: this.returnFriend.bind(this) }); }}
+        >
+          { "pencil" }
+        </CircleButton>
+
+        <CircleButton style={styles.funcButton} onPress= {this.handlePress.bind(this)}>
+          { "trash-o" }
+        </CircleButton>
+
+        <CircleButton style={styles.favStar} fav={this.state.friend.fav} onPress= {this.handleClick.bind(this)}>
+          { "star" }
+        </CircleButton>
       </View>
     );
   }
@@ -127,7 +124,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   editButton: {
-    top: 0,
+    top: -524,
   },
   FriendContent: {
     paddingTop: 30,
@@ -138,11 +135,20 @@ const styles = StyleSheet.create({
     zIndex: 0,
   },
   funcButton: {
-    top: -120,
+    top: -24,
+    width: 36,
+    height: 36,
+    margin: 8,
+    borderRadius: 36,
   },
   favStar: {
-    top: 48,
-    left: 28,
+    top: -644,
+    left: 16,
+    backgroundColor: '#17313C',
+    width: 36,
+    height: 36,
+    margin: 8,
+    borderRadius: 36,
   },
 });
 

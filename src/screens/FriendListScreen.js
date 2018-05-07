@@ -53,12 +53,13 @@ class FriendListScreen extends React.Component {
         <CircleButton onPress={this.handlePress.bind(this)}>
           { "user-plus" }
         </CircleButton>
-        <View style={styles.favStar}>
-          <CircleButton
-              onPress={this.handleClick.bind(this)}>
-            { "star" }
-          </CircleButton>
-        </View>
+
+        <CircleButton
+          style={styles.favStar}
+          onPress={this.handleClick.bind(this)}>
+          { "star" }
+        </CircleButton>
+
       </View>
     );
   }
