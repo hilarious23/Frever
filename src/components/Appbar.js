@@ -15,7 +15,7 @@ class Appbar extends React.Component {
           platform="android"
           placeholder='Search'
         />
-        
+
      </View>
    );
   }

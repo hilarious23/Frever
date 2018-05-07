@@ -15,6 +15,7 @@ class FriendListScreen extends React.Component {
     const { currentUser } = firebase.auth();
     const db = firebase.firestore();
     db.collection(`users/${currentUser.uid}/friends`)
+      .orderBy('createdOn', 'desc')
       .onSnapshot((snapshot) => {
         const friendList = [];
         snapshot.forEach((doc) => {
@@ -41,6 +42,10 @@ class FriendListScreen extends React.Component {
     this.props.navigation.navigate('NewFriend');
   }
 
+  handleClick() {
+    this.props.navigation.navigate('FavFriend');
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -48,6 +53,12 @@ class FriendListScreen extends React.Component {
         <CircleButton onPress={this.handlePress.bind(this)}>
           { "user-plus" }
         </CircleButton>
+        <View style={styles.favStar}>
+          <CircleButton
+              onPress={this.handleClick.bind(this)}>
+            { "star" }
+          </CircleButton>
+        </View>
       </View>
     );
   }
@@ -59,6 +70,10 @@ const styles = StyleSheet.create({
       width: '100%',
       flexDirection: 'column',
       backgroundColor: '#FFFDF6',
+  },
+  favStar: {
+    top: -640,
+    left: 28,
   },
 });
 

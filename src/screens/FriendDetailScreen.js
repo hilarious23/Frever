@@ -14,6 +14,7 @@ class FriendDetailScreen extends React.Component {
   state = {
     friend: {},
     key: '',
+    fav: '',
   }
 
   componentWillMount() {
@@ -21,6 +22,7 @@ class FriendDetailScreen extends React.Component {
     this.setState({
       friend: params.friend,
       key: params.friend.key,
+      fav: params.friend.fav,
      });
   }
 
@@ -39,6 +41,19 @@ class FriendDetailScreen extends React.Component {
       })
       .catch((error) => {
         console.log(error);
+      });
+  }
+
+  handleClick() {
+    const { currentUser } = firebase.auth();
+    const db = firebase.firestore();
+    const newDate = new Date();
+    db.collection(`users/${currentUser.uid}/friends`).doc(this.state.key)
+      .update({
+        fav: 1
+      })
+      .catch((error) => {
+        console.log('error');
       });
   }
 
@@ -70,7 +85,11 @@ class FriendDetailScreen extends React.Component {
             { "trash-o" }
           </CircleButton>
         </View>
-
+        <View style={styles.favStar}>
+          <CircleButton onPress= {this.handleClick.bind(this)}>
+            { "star" }
+          </CircleButton>
+        </View>
       </View>
     );
   }
@@ -120,6 +139,10 @@ const styles = StyleSheet.create({
   },
   funcButton: {
     top: -120,
+  },
+  favStar: {
+    top: 48,
+    left: 28,
   },
 });
 

@@ -5,6 +5,7 @@ import FriendListScreen from './src/screens/FriendListScreen';
 import FriendDetailScreen from './src/screens/FriendDetailScreen';
 import FriendEditScreen from './src/screens/FriendEditScreen';
 import NewFriendScreen from './src/screens/NewFriendScreen';
+import FavoriteFriendScreen from './src/screens/FavoriteFriendScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import SignupScreen from './src/screens/SignupScreen';
 
@@ -31,6 +32,7 @@ const App = StackNavigator({
   Signup: {screen: SignupScreen},
   Home: { screen: FriendListScreen },
   NewFriend: {screen: NewFriendScreen},
+  FavFriend: {screen: FavoriteFriendScreen},
   FriendDetail: { screen: FriendDetailScreen },
   FriendEdit: {screen: FriendEditScreen},
 },{
