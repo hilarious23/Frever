@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import firebase from 'firebase';
 
 import FriendList from '../components/FriendList';
@@ -51,11 +51,11 @@ class FavoriteFriendScreen extends React.Component {
           { "user-plus" }
         </CircleButton>
 
-        <CircleButton
+        <TouchableOpacity
           style={styles.favStar}
           onPress={this.handleClick.bind(this)}>
-          { "star" }
-        </CircleButton>
+          <Text style={styles.favStarText}>FriendsList</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -69,8 +69,15 @@ const styles = StyleSheet.create({
       backgroundColor: '#FFFDF6',
   },
   favStar: {
-    top: -636,
-    left: 36,
+    top: -692,
+    left: 240,
+    backgroundColor: '#4eacd8',
+    width: 64,
+    height: 24,
+    margin: 8,
+  },
+  favStarText: {
+    color: '#fff',
   },
 });
 

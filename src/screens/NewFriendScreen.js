@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import firebase from 'firebase';
 
 import CircleButton from '../elements/CircleButton';
@@ -10,9 +10,11 @@ class NewFriendScreen extends React.Component {
     name: '',
     url: '',
     body: '',
+    fav: '',
   }
 
 handlePress() {
+  console.log('(> <)')
   const db = firebase.firestore();
   const { currentUser } = firebase.auth();
   db.collection(`users/${currentUser.uid}/friends`).add({
@@ -20,6 +22,7 @@ handlePress() {
     url: this.state.url,
     body: this.state.body,
     createdOn: new Date(),
+    fav: this.state.fav,
   })
     .then(() => {
       this.props.navigation.goBack();
@@ -27,6 +30,10 @@ handlePress() {
     .catch((error) => {
       console.log(error);
     });
+}
+
+handlePressFav() {
+  this.setState({ fav : 1 })
 }
 
 
@@ -62,9 +69,16 @@ handlePress() {
           value={this.state.body}
           onChangeText={(text) => { this.setState({ body: text }); }}
         />
+
         <CircleButton onPress= {this.handlePress.bind(this)}>
           { "check" }
         </CircleButton>
+
+        <TouchableOpacity
+          style={styles.favStar}
+          onPress={this.handlePressFav.bind(this)}>
+          <Text>Fav</Text>
+        </TouchableOpacity>
 
       </View>
     );
@@ -106,6 +120,10 @@ const styles = StyleSheet.create({
     paddingRight: 16,
     paddingBottom: 16,
     fontSize: 16,
+  },
+  favStar: {
+    top: -692,
+    left: 240,
   },
 });
 
