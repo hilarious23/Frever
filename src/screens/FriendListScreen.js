@@ -59,7 +59,7 @@ class FriendListScreen extends React.Component {
         <TouchableOpacity
           style={styles.favStar}
           onPress={this.handleClick.bind(this)}>
-          <Text style={styles.favStarText}>FavFriends</Text>
+          <Text style={styles.favStarText}>Go FavFriends</Text>
         </TouchableOpacity>
 
       </View>
@@ -76,14 +76,15 @@ const styles = StyleSheet.create({
   },
   favStar: {
     top: -692,
-    left: 240,
+    left: 272,
     backgroundColor: '#4eacd8',
-    width: 64,
+    width: 96,
     height: 24,
     margin: 8,
   },
   favStarText: {
     color: '#fff',
+    alignSelf: 'center',
   },
 });
 

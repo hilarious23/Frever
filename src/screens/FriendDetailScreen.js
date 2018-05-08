@@ -58,7 +58,7 @@ class FriendDetailScreen extends React.Component {
           return fav: 1;
         }
         */
-        fav: 1
+        fav: 0
       })
       .catch((error) => {
         console.log('error');

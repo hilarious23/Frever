@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-nativ
 import firebase from 'firebase';
 
 import CircleButton from '../elements/CircleButton';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 class NewFriendScreen extends React.Component {
@@ -64,7 +65,7 @@ handlePressFav() {
           style={styles.FriendEditBody}
           multiline
           blurOnSubmit={false}
-          placeholder='Personal Infomation'
+          placeholder='Personal Information'
           autoCapitalize="none"
           value={this.state.body}
           onChangeText={(text) => { this.setState({ body: text }); }}
@@ -77,7 +78,9 @@ handlePressFav() {
         <TouchableOpacity
           style={styles.favStar}
           onPress={this.handlePressFav.bind(this)}>
-          <Text>Fav</Text>
+          <View style={styles.CircleButton}>
+            <Icon name = {'star'}　style={styles.CircleIcon}/>
+          </View>
         </TouchableOpacity>
 
       </View>
@@ -122,8 +125,23 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   favStar: {
-    top: -692,
-    left: 240,
+    top: -680,
+    left: 328,
+  },
+  CircleButton: {
+    backgroundColor: '#ff6600',
+    width: 36,
+    height: 36,
+    margin: 8,
+    borderRadius: 36,
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 4,
+  },
+  CircleIcon: {
+    fontSize: 24,
+    color: '#fff',
+    lineHeight: 36,
   },
 });
 

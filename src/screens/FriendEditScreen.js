@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity} from 'react-native';
 import firebase from 'firebase';
 
 import CircleButton from '../elements/CircleButton';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class FriendEditScreen extends React.Component {
   state = {
@@ -10,6 +11,7 @@ class FriendEditScreen extends React.Component {
     name: '',
     url: '',
     key: '',
+    fav: '',
   }
 
   componentWillMount() {
@@ -19,6 +21,7 @@ class FriendEditScreen extends React.Component {
       name: params.friend.name,
       url: params.friend.url,
       key: params.friend.key,
+      fav: params.friend.fav,
     });
   }
 
@@ -32,6 +35,7 @@ class FriendEditScreen extends React.Component {
         name: this.state.name,
         url: this.state.url,
         createdOn: newDate,
+        fav: this.state.fav,
       })
       .then(() => {
         const { navigation } = this.props;
@@ -41,12 +45,17 @@ class FriendEditScreen extends React.Component {
           url: this.state.url,
           key: this.state.key,
           createdOn: newDate,
+          fav: this.state.fav,
         });
         navigation.goBack();
       })
       .catch((error) => {
         console.log('error');
       });
+  }
+
+  handlePressFav() {
+    this.setState({ fav : 1 })
   }
 
   render() {
@@ -84,6 +93,14 @@ class FriendEditScreen extends React.Component {
         <CircleButton onPress= {this.handlePress.bind(this)}>
           { "check" }
         </CircleButton>
+
+        <TouchableOpacity
+          style={styles.favStar}
+          onPress={this.handlePressFav.bind(this)}>
+          <View style={styles.CircleButton}>
+            <Icon name = {'star'}　style={styles.CircleIcon}/>
+          </View>
+        </TouchableOpacity>
 
       </View>
     );
@@ -125,6 +142,25 @@ const styles = StyleSheet.create({
     paddingRight: 16,
     paddingBottom: 16,
     fontSize: 16,
+  },
+  favStar: {
+    top: -680,
+    left: 328,
+  },
+  CircleButton: {
+    backgroundColor: '#ff6600',
+    width: 36,
+    height: 36,
+    margin: 8,
+    borderRadius: 36,
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 4,
+  },
+  CircleIcon: {
+    fontSize: 24,
+    color: '#fff',
+    lineHeight: 36,
   },
 });
 
