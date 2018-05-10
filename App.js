@@ -28,26 +28,81 @@ firestore.settings(settings);
 */
 
 const App = StackNavigator({
-  Login: {screen: LoginScreen},
-  Signup: {screen: SignupScreen},
-  Home: { screen: FriendListScreen },
-  NewFriend: {screen: NewFriendScreen},
-  FavFriend: {screen: FavoriteFriendScreen},
-  FriendDetail: { screen: FriendDetailScreen },
-  FriendEdit: {screen: FriendEditScreen},
-},{
-  navigationOptions: {
-    headerTitle: 'Frever',
-    headerTitleStyle: {
-      textAlign: 'center',
-      alignSelf: 'center',
+  Login: {screen: LoginScreen,
+    navigationOptions: {
+      header: null,
+      },
     },
-    headerTintColor: '#fff',
-    headerStyle: {
-      backgroundColor:'#4eacd8',
-      elevation: 3,
+  Signup: {screen: SignupScreen,
+    navigationOptions: {
+      header: null,
+      },
     },
-  },
+  Home: { screen: FriendListScreen,
+    navigationOptions: {
+      headerTitle: 'Frever',
+      headerTitleStyle: {
+        textAlign: 'center',
+        alignSelf: 'center',
+      },
+      headerTintColor: '#fff',
+      headerStyle: {
+        backgroundColor:'#4eacd8',
+        elevation: 3,
+      },
+    }},
+  NewFriend: {screen: NewFriendScreen,
+    navigationOptions: {
+      headerTitle: 'Frever',
+      headerTitleStyle: {
+        textAlign: 'center',
+        alignSelf: 'center',
+      },
+      headerTintColor: '#fff',
+      headerStyle: {
+        backgroundColor:'#4eacd8',
+        elevation: 3,
+      },
+    }},
+  FavFriend: {screen: FavoriteFriendScreen,
+    navigationOptions: {
+      headerTitle: 'Favorite',
+      headerTitleStyle: {
+        textAlign: 'center',
+        alignSelf: 'center',
+      },
+      headerTintColor: '#fff',
+      headerStyle: {
+        backgroundColor:'#4eacd8',
+        elevation: 3,
+      },
+    }},
+  FriendDetail: { screen: FriendDetailScreen,
+    navigationOptions: {
+      headerTitle: 'Frever',
+      headerTitleStyle: {
+        textAlign: 'center',
+        alignSelf: 'center',
+      },
+      headerTintColor: '#fff',
+      headerStyle: {
+        backgroundColor:'#4eacd8',
+        elevation: 3,
+      },
+    }},
+  FriendEdit: {screen: FriendEditScreen,
+    navigationOptions: {
+      headerTitle: 'Frever',
+      headerTitleStyle: {
+        textAlign: 'center',
+        alignSelf: 'center',
+      },
+      headerTintColor: '#fff',
+      headerStyle: {
+        backgroundColor:'#4eacd8',
+        elevation: 3,
+      },
+    }},
 });
 
 export default App;

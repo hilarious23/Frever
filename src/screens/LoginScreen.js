@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableHighlight, TouchableOpacity, ImageBackground } from 'react-native';
 import firebase from 'firebase';
 import { NavigationActions } from 'react-navigation';
 
@@ -41,8 +41,10 @@ class LoginScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.loginContent}>
+      <ImageBackground
+        source={require('../../assets/images/Login.v1.jpg')}
+        style={styles.photo}>
+        <View style={styles.container}>
           <Text style={styles.title}>Frever</Text>
           <TextInput
             style={styles.input}
@@ -70,32 +72,35 @@ class LoginScreen extends React.Component {
           >
            <Text style={styles.buttonText}> Login </Text>
           </TouchableHighlight>
+          <TouchableOpacity
+            style={styles.createAccount}
+            onPress={this.handlePress.bind(this)}>
+            <Text style={styles.createAccountText}>Create Account</Text>
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          style={styles.createAccount}
-          onPress={this.handlePress.bind(this)}>
-          <Text style={styles.createAccountText}>Create Account</Text>
-        </TouchableOpacity>
-
-      </View>
+      </ImageBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  photo: {
     flex: 1,
-    width: '100%',
-    backgroundColor: '#fff',
+    alignItems: 'stretch',
+    opacity: 0.66,
   },
   title: {
     fontSize: 28,
     alignSelf: 'center',
-    marginBottom: 24,
+    marginBottom: 16,
+    height: 32,
+    fontWeight: 'bold',
+    color: '#fff'
   },
-  loginContent: {
+  container: {
     padding: 24,
-    backgroundColor: '#fff',
+    justifyContent: 'center',
+    marginTop: '50%',
   },
   input: {
     backgroundColor: '#eee',
@@ -113,6 +118,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '67%',
     alignSelf: 'center',
+    marginBottom: 12,
   },
   buttonText: {
     color: '#fff',
