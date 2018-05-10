@@ -45,7 +45,8 @@ class LoginScreen extends React.Component {
         source={require('../../assets/images/Login.v1.jpg')}
         style={styles.photo}>
         <View style={styles.container}>
-          <Text style={styles.title}>Frever</Text>
+          <Text style={styles.title1}>Welcome Back!</Text>
+          <Text style={styles.title2}>Frever</Text>
           <TextInput
             style={styles.input}
             value={this.state.email}
@@ -89,11 +90,19 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     opacity: 0.66,
   },
-  title: {
+  title1: {
+    fontSize: 20,
+    alignSelf: 'center',
+    marginBottom: 8,
+    height: 20,
+    fontWeight: 'bold',
+    color: '#fff'
+  },
+  title2: {
     fontSize: 28,
     alignSelf: 'center',
     marginBottom: 16,
-    height: 32,
+    height: 28,
     fontWeight: 'bold',
     color: '#fff'
   },
@@ -119,10 +128,12 @@ const styles = StyleSheet.create({
     width: '67%',
     alignSelf: 'center',
     marginBottom: 12,
+    opacity: 0.92,
   },
   buttonText: {
     color: '#fff',
     fontSize:18,
+    fontWeight: 'bold',
   },
   createAccount: {
     alignSelf: 'center',
