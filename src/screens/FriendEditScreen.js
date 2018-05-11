@@ -11,7 +11,7 @@ class FriendEditScreen extends React.Component {
     name: '',
     url: '',
     key: '',
-    fav: '',
+    fav: false,
   }
 
   componentWillMount() {

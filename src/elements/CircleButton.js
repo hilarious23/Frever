@@ -9,7 +9,7 @@ class CircleButton extends React.Component {
 
     let color = '#fff';
 
-    if (fav === 1) {
+    if (fav === true) {
       color = '#f9d13e';
     }
     return (
