@@ -87,6 +87,7 @@ class FriendEditScreen extends React.Component {
           blurOnSubmit={false}
           placeholder='Personal Infomation'
           autoCapitalize="none"
+          autoCorrect={false}
           value={this.state.body}
           onChangeText={(text) => { this.setState({ body: text }); }}
         />

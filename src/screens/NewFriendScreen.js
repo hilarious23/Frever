@@ -67,6 +67,7 @@ handlePressFav() {
           blurOnSubmit={false}
           placeholder='Personal Information'
           autoCapitalize="none"
+          autoCorrect={false}
           value={this.state.body}
           onChangeText={(text) => { this.setState({ body: text }); }}
         />

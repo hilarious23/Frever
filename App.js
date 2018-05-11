@@ -1,3 +1,4 @@
+import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import firebase from 'firebase';
 
@@ -8,6 +9,7 @@ import NewFriendScreen from './src/screens/NewFriendScreen';
 import FavoriteFriendScreen from './src/screens/FavoriteFriendScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import SignupScreen from './src/screens/SignupScreen';
+import FavButton from './src/elements/FavButton';
 
 require("firebase/firestore");
 import ENV from './env.json';
@@ -45,6 +47,9 @@ const App = StackNavigator({
         textAlign: 'center',
         alignSelf: 'center',
       },
+      header: ({ navigate }) => ({
+        right: <FavButton navigate={navigate} />
+      }),
       headerTintColor: '#fff',
       headerStyle: {
         backgroundColor:'#4eacd8',
