@@ -14,16 +14,26 @@ class FriendDetailScreen extends React.Component {
   state = {
     friend: {},
     key: '',
-    fav: '',
+    fav: false,
   }
 
   componentWillMount() {
+    /*
     const { params } = this.props.navigation.state;
     this.setState({
       friend: params.friend,
       key: params.friend.key,
       fav: params.friend.fav,
      });
+     */
+
+    // ここでuidを用いてfriendの情報を取得(favも含め)
+    // state変更
+    // firebase.database().ref()............(user) => {
+    this.setState({
+      //fav: user.fav
+    })
+   // db.collection(`users/${currentUser.uid}`)
   }
 
 
@@ -58,7 +68,7 @@ class FriendDetailScreen extends React.Component {
           return fav: 1;
         }
         */
-        fav: 1
+        fav: !this.state.fav
       })
       .catch((error) => {
         console.log('error');
